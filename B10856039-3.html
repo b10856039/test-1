@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script language="Javascript">
+        function Test() {
+            var name = document.getElementById("name");
+            var phone = document.getElementById("phone");
+            var Id = document.getElementById("Id");
+        }
+
+        function showTest() {
+            var name = document.getElementById("name");
+            var phone = document.getElementById("phone");
+            var Id = document.getElementById("Id");
+            var objCard = new newCard(name.value, phone.value, Id.value);
+            objCard.print();
+        }
+
+        function newCard(name, phone, Id) {
+            this.name = name;
+            this.phone = phone;
+            this.Id = Id;
+            this.test = test1(Id);
+            this.print = printCard;
+        }
+
+        function printCard() {
+            document.write("使用者資料判斷<br><hr>");
+            document.write("姓名:" + this.name + "<br>");
+            document.write("電話:" + this.phone + "<br>");
+            document.write("身分證:" + this.Id + "<br><hr>");
+            document.write("性別:" + this.test + "<br>");
+        }
+
+        function test1(Id) {
+            if (Id.charAt(1) == "1") {
+                return "男性";
+            } else if (Id.charAt(1) == "2") {
+                return "女性";
+            } else {
+                return "顯示錯誤";
+            }
+        }
+    </script>
+</head>
+
+<body onload=Test()>
+    Input Your Name:<input type="text" value="" id="name" /><br/>
+     Input Your Phone:<input type="text" value="" id="phone" /><br/>
+      Input Your Id:<input type="text" value="" id="Id" /><br/>
+    <input type="button" value="送出" id="" onclick="showTest()"><br/>
+</body>
+
+</html>
